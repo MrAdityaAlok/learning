@@ -1,0 +1,166 @@
+<svg width="550" height="349" viewBox="0 0 550 349" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    :root {
+      --bg: #e5e7eb;
+      --text: #111827;
+      --subtext: #374151;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #2a2f3a;
+        --text: #f3f4f6;
+        --subtext: #9ca3af;
+      }
+    }
+
+    .heading {
+      font-family: sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      fill: var(--text);
+    }
+
+    .label, .progress-text {
+      font-family: sans-serif;
+      font-size: 14px;
+      fill: var(--subtext);
+    }
+
+    .bar-bg {
+      fill: var(--bg);
+    }
+  </style>
+
+  <text x="20" y="40" class="heading">Exercism Progress</text>
+
+  
+  <text x="20" y="112.66666666666667" class="label">Bash :</text>
+
+  <rect x="110" y="99.0" width="350.0" height="18"
+        rx="4" ry="4" class="bar-bg"/>
+
+  <rect x="110" y="99.0" width="0" height="18"
+        rx="4" ry="4"
+        fill="#555555">
+    <animate attributeName="width"
+             from="0"
+             to="7"
+             dur="1.5s"
+             fill="freeze"
+             calcMode="spline"
+             keySplines="0.4 0 0.2 1"
+             keyTimes="0;1"/>
+  </rect>
+
+  <text x="470.0" y="112.66666666666667"
+        class="progress-text">2.15%</text>
+
+  <text x="20" y="147.66666666666666" class="label">C :</text>
+
+  <rect x="110" y="134.0" width="350.0" height="18"
+        rx="4" ry="4" class="bar-bg"/>
+
+  <rect x="110" y="134.0" width="0" height="18"
+        rx="4" ry="4"
+        fill="#555555">
+    <animate attributeName="width"
+             from="0"
+             to="125"
+             dur="1.5s"
+             fill="freeze"
+             calcMode="spline"
+             keySplines="0.4 0 0.2 1"
+             keyTimes="0;1"/>
+  </rect>
+
+  <text x="470.0" y="147.66666666666666"
+        class="progress-text">35.71%</text>
+
+  <text x="20" y="182.66666666666666" class="label">Go :</text>
+
+  <rect x="110" y="169.0" width="350.0" height="18"
+        rx="4" ry="4" class="bar-bg"/>
+
+  <rect x="110" y="169.0" width="0" height="18"
+        rx="4" ry="4"
+        fill="#375eab">
+    <animate attributeName="width"
+             from="0"
+             to="28"
+             dur="1.5s"
+             fill="freeze"
+             calcMode="spline"
+             keySplines="0.4 0 0.2 1"
+             keyTimes="0;1"/>
+  </rect>
+
+  <text x="470.0" y="182.66666666666666"
+        class="progress-text">8.28%</text>
+
+  <text x="20" y="217.66666666666666" class="label">Haskell :</text>
+
+  <rect x="110" y="204.0" width="350.0" height="18"
+        rx="4" ry="4" class="bar-bg"/>
+
+  <rect x="110" y="204.0" width="0" height="18"
+        rx="4" ry="4"
+        fill="#29b544">
+    <animate attributeName="width"
+             from="0"
+             to="13"
+             dur="1.5s"
+             fill="freeze"
+             calcMode="spline"
+             keySplines="0.4 0 0.2 1"
+             keyTimes="0;1"/>
+  </rect>
+
+  <text x="470.0" y="217.66666666666666"
+        class="progress-text">3.74%</text>
+
+  <text x="20" y="252.66666666666666" class="label">Perl :</text>
+
+  <rect x="110" y="239.0" width="350.0" height="18"
+        rx="4" ry="4" class="bar-bg"/>
+
+  <rect x="110" y="239.0" width="0" height="18"
+        rx="4" ry="4"
+        fill="#0298c3">
+    <animate attributeName="width"
+             from="0"
+             to="8"
+             dur="1.5s"
+             fill="freeze"
+             calcMode="spline"
+             keySplines="0.4 0 0.2 1"
+             keyTimes="0;1"/>
+  </rect>
+
+  <text x="470.0" y="252.66666666666666"
+        class="progress-text">2.38%</text>
+
+  <text x="20" y="287.6666666666667" class="label">Python :</text>
+
+  <rect x="110" y="274.0" width="350.0" height="18"
+        rx="4" ry="4" class="bar-bg"/>
+
+  <rect x="110" y="274.0" width="0" height="18"
+        rx="4" ry="4"
+        fill="#3572A5">
+    <animate attributeName="width"
+             from="0"
+             to="131"
+             dur="1.5s"
+             fill="freeze"
+             calcMode="spline"
+             keySplines="0.4 0 0.2 1"
+             keyTimes="0;1"/>
+  </rect>
+
+  <text x="470.0" y="287.6666666666667"
+        class="progress-text">37.67%</text>
+
+
+</svg>

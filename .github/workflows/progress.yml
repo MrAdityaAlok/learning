@@ -1,0 +1,51 @@
+name: Update progress svg
+
+on:
+  schedule:
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-progress-bar:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: "progress/.python-version"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.10.3"
+          enable-cache: true
+
+      - name: Run script
+        env:
+          EXERCISM_TOKEN: ${{ secrets.EXERCISM_TOKEN }}
+        run: |
+          cd progress
+          uv sync --locked --all-extras
+          uv run progress_bar.py
+
+      - name: Update svg
+        id: auto-commit-action
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          file_pattern: "assets/*.svg"
+          skip_dirty_check: false
+          commit_message: "assets: Update exercise progress svg"
+
+      - name: "Run if changes have been detected"
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        run: echo "Progress updated!"
+
+      - name: "Run if no changes have been detected"
+        if: steps.auto-commit-action.outputs.changes_detected == 'false'
+        run: echo "No changes in progress!"
