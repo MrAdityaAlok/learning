@@ -1,4 +1,4 @@
-<svg width="550" height="349" viewBox="0 0 550 349" xmlns="http://www.w3.org/2000/svg">
+<svg width="550" height="384" viewBox="0 0 550 384" xmlns="http://www.w3.org/2000/svg">
 
   <style>
     :root {
@@ -120,12 +120,33 @@
   <text x="470.0" y="217.66666666666666"
         class="progress-text">3.74%</text>
 
-  <text x="20" y="252.66666666666666" class="label">Perl :</text>
+  <text x="20" y="252.66666666666666" class="label">Java :</text>
 
   <rect x="110" y="239.0" width="350.0" height="18"
         rx="4" ry="4" class="bar-bg"/>
 
   <rect x="110" y="239.0" width="0" height="18"
+        rx="4" ry="4"
+        fill="#b07219">
+    <animate attributeName="width"
+             from="0"
+             to="4"
+             dur="1.5s"
+             fill="freeze"
+             calcMode="spline"
+             keySplines="0.4 0 0.2 1"
+             keyTimes="0;1"/>
+  </rect>
+
+  <text x="470.0" y="252.66666666666666"
+        class="progress-text">1.28%</text>
+
+  <text x="20" y="287.6666666666667" class="label">Perl :</text>
+
+  <rect x="110" y="274.0" width="350.0" height="18"
+        rx="4" ry="4" class="bar-bg"/>
+
+  <rect x="110" y="274.0" width="0" height="18"
         rx="4" ry="4"
         fill="#0298c3">
     <animate attributeName="width"
@@ -138,15 +159,15 @@
              keyTimes="0;1"/>
   </rect>
 
-  <text x="470.0" y="252.66666666666666"
+  <text x="470.0" y="287.6666666666667"
         class="progress-text">2.38%</text>
 
-  <text x="20" y="287.6666666666667" class="label">Python :</text>
+  <text x="20" y="322.6666666666667" class="label">Python :</text>
 
-  <rect x="110" y="274.0" width="350.0" height="18"
+  <rect x="110" y="309.0" width="350.0" height="18"
         rx="4" ry="4" class="bar-bg"/>
 
-  <rect x="110" y="274.0" width="0" height="18"
+  <rect x="110" y="309.0" width="0" height="18"
         rx="4" ry="4"
         fill="#3572A5">
     <animate attributeName="width"
@@ -159,7 +180,7 @@
              keyTimes="0;1"/>
   </rect>
 
-  <text x="470.0" y="287.6666666666667"
+  <text x="470.0" y="322.6666666666667"
         class="progress-text">37.67%</text>
 
 
