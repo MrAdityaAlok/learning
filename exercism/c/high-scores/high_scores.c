@@ -1,45 +1,47 @@
 #include "high_scores.h"
-#include <string.h>
 
-// Descending order insertion sort. Best for n ~20.
-static void sort(int32_t *arr, size_t arr_len) {
-  int32_t temp;
-  for (size_t i = 1; i < arr_len; i++) {
-    for (size_t j = i; j > 0; j--) {
-      if (arr[j - 1] >= arr[j])
-        break;
-      temp = arr[j - 1];
-      arr[j - 1] = arr[j];
-      arr[j] = temp;
-    }
-  }
-}
-
-int32_t latest(const int32_t *scores, size_t scores_len) {
+int32_t latest(const int32_t *const scores, const size_t scores_len) {
   return scores[scores_len - 1];
 }
 
-int32_t personal_best(const int32_t *scores, size_t scores_len) {
-  int32_t sorted_scores[scores_len];
-
-  memcpy(sorted_scores, scores, scores_len * sizeof(int32_t));
-  sort(sorted_scores, scores_len);
-
-  return sorted_scores[0];
+int32_t personal_best(const int32_t *const scores, const size_t scores_len) {
+  int32_t highest = INT32_MIN;
+  for (size_t i = 0; i < scores_len; i++) {
+    if (scores[i] > highest)
+      highest = scores[i];
+  }
+  return highest;
 }
 
-size_t personal_top_three(const int32_t *scores, size_t scores_len,
-                          int32_t *output) {
-  int32_t sorted_scores[scores_len];
+size_t personal_top_three(const int32_t *const scores, const size_t scores_len,
+                          int32_t *const output) {
+  // clang-format off
+  if (scores_len == 0 || !scores_len) return 0;
 
-  memcpy(sorted_scores, scores, scores_len * sizeof(int32_t));
-  sort(sorted_scores, scores_len);
+  int32_t a, b, c; a = b = c = INT32_MIN;
+  // clang-format on
 
-  size_t i = 0;
-
-  for (; i < (3 < scores_len ? 3 : scores_len); i++) {
-    output[i] = sorted_scores[i];
+  for (size_t i = 0; i < scores_len; i++) {
+    if (scores[i] > a) {
+      c = b;
+      b = a;
+      a = scores[i];
+    } else if (scores[i] > b) {
+      c = b;
+      b = scores[i];
+    } else if (scores[i] > c) {
+      c = scores[i];
+    }
   }
 
-  return i;
+  size_t count = scores_len > 3 ? 3 : scores_len;
+
+  output[0] = a;
+
+  // clang-format off
+  if (count > 1) output[1] = b;
+  if (count > 2) output[2] = c;
+  // clang-format on
+
+  return count;
 }
