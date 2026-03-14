@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -euo pipefail
+
+function donwload_and_patch() {
+	local output dir
+
+	output=$(/usr/bin/exercism "$@")
+	dir=$(echo "$output" | awk 'END {print $NF}')
+
+	pushd "$dir" >/dev/null
+
+	if [[ -f ./makefile ]]; then
+		echo "Patching makefile..."
+
+		# Assume only newer test framework is downloaded:
+		if grep -q "test-framework/unity.c" makefile; then
+			sed -i -e 's|test-framework/|../_lib/unityv2/test-framework/|g' \
+				-e '/^\.PHONY: test/i CFLAGS += -I../_lib/unityv2\n' \
+				makefile
+		fi
+
+		rm -rf test-framework
+		# For clangd:
+		ln -s ../_lib/compile_flags.txt compile_flags.txt
+
+		echo "Successfully patched makefile to use global _lib!"
+
+		popd >/dev/null
+	fi
+}
+
+if [[ "${1:-}" == "download" && "$*" =~ --track=c ]]; then
+	donwload_and_patch "$@"
+else
+	# Passthrough for __complete and other commands:
+	exec /usr/bin/exercism "$@"
+fi
