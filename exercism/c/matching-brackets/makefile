@@ -17,6 +17,8 @@ ASANFLAGS  = -fsanitize=address
 ASANFLAGS += -fno-common
 ASANFLAGS += -fno-omit-frame-pointer
 
+CFLAGS += -I../_lib/unityv1
+
 .PHONY: test
 test: tests.out
 	@./tests.out
@@ -24,7 +26,7 @@ test: tests.out
 .PHONY: memcheck
 memcheck: test/*.c src/*.c src/*.h
 	@echo Compiling $@
-	@$(CC) $(ASANFLAGS) $(CFLAGS) src/*.c test/vendor/unity.c test/*.c -o memcheck.out $(LIBS)
+	@$(CC) $(ASANFLAGS) $(CFLAGS) src/*.c ../_lib/unityv1/vendor/unity.c test/*.c -o memcheck.out $(LIBS)
 	@./memcheck.out
 	@echo "Memory check passed"
 
@@ -34,4 +36,4 @@ clean:
 
 tests.out: test/*.c src/*.c src/*.h
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) src/*.c test/vendor/unity.c test/*.c -o tests.out $(LIBS)
+	@$(CC) $(CFLAGS) src/*.c ../_lib/unityv1/vendor/unity.c test/*.c -o tests.out $(LIBS)
