@@ -2,7 +2,7 @@
 
 const int *binary_search(int value, const int *arr, const size_t length) {
 
-  if (!arr || value < arr[0] || value > arr[length - 1])
+  if (!arr || length == 0 || value < arr[0] || value > arr[length - 1])
     return NULL;
 
   if (length == 1)
