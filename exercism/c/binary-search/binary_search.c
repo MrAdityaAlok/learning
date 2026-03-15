@@ -11,13 +11,12 @@ const int *binary_search(int value, const int *arr, const size_t length) {
   size_t start = 0, end = length, middle;
 
   while (start < end) {
-    middle = start + (end - start) / 2; // half: [start, end)
+    middle = (start + end) / 2; // half: [start, end)
     if (arr[middle] == value)
-      return &arr[middle];
-
-    if (arr[middle] > value)
+      return (const int *)(arr + middle);
+    else if (arr[middle] > value)
       end = middle;
-    else if (arr[middle] < value)
+    else
       start = middle + 1;
   }
 
