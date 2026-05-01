@@ -67,7 +67,7 @@
         fill="#555555">
     <animate attributeName="width"
              from="0"
-             to="150"
+             to="154"
              dur="1.5s"
              fill="freeze"
              calcMode="spline"
@@ -76,7 +76,7 @@
   </rect>
 
   <text x="470.0" y="147.66666666666666"
-        class="progress-text">42.86%</text>
+        class="progress-text">44.05%</text>
 
   <text x="20" y="182.66666666666666" class="label">Go :</text>
 
