@@ -17,7 +17,7 @@ def add_item(
     """
 
     for item in items_to_add:
-        current_cart[item] = current_cart.setdefault(item, 0) + 1
+        current_cart[item] = current_cart.get(item, 0) + 1
 
     return current_cart
 
