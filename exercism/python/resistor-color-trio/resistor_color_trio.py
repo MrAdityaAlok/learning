@@ -24,10 +24,10 @@ def label(colors: List[str]) -> str:
     if resistance < 1e3:
         resistance_label = f"{resistance} ohms"
     elif resistance < 1e6:
-        resistance_label = f"{resistance // 1000} kiloohms"
+        resistance_label = f"{resistance / 1000:g} kiloohms"
     elif resistance < 1e9:
-        resistance_label = f"{resistance // 1000_000} megaohms"
+        resistance_label = f"{resistance / 1000_000:g} megaohms"
     elif resistance < 1e12:
-        resistance_label = f"{resistance // 1000_000_000} gigaohms"
+        resistance_label = f"{resistance / 1000_000_000:g} gigaohms"
 
     return resistance_label
