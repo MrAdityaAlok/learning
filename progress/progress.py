@@ -26,7 +26,7 @@ class JoinedTracks(BaseModel):
     tracks: List[Track]
 
 
-API_BASE_URL = "https://exercism.org/api/v2"
+API_BASE_URL = "https://api.exercism.org/v2"
 
 
 def get_default_headers() -> dict:
@@ -44,7 +44,17 @@ def get_joined_tracks() -> JoinedTracks:
     response = requests.get(
         API_BASE_URL + "/tracks?status=joined", headers=get_default_headers()
     )
-    assert response.status_code == 200
+
+    if response.status_code != 200:
+        print(
+            "DEBUG",
+            "response_code:",
+            response.status_code,
+            "\nresponse:",
+            response.text,
+        )
+        raise Exception("Something changed...?")
+
     return JoinedTracks.model_validate(response.json())
 
 
