@@ -10,9 +10,9 @@ float estimate(float S) {
    * https://www.physicsforums.com/threads/seed-values-for-estimating-square-roots.445749/)
    */
   int D = log10(S) + 1;
-  int even_or_odd = D % 2 == 0;
-  float n = even_or_odd ? (D - 2) / 2 : (D - 1) / 2;
-  float estimated = even_or_odd ? 6 * pow(10, n) : 2 * pow(10, n);
+  int is_even = D % 2 == 0;
+  float n = is_even ? (D - 2) / 2 : (D - 1) / 2;
+  float estimated = is_even ? 6 * pow(10, n) : 2 * pow(10, n);
 
   return estimated;
 }
