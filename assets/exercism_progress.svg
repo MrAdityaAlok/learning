@@ -172,7 +172,7 @@
         fill="#3572A5">
     <animate attributeName="width"
              from="0"
-             to="186"
+             to="189"
              dur="1.5s"
              fill="freeze"
              calcMode="spline"
@@ -181,7 +181,7 @@
   </rect>
 
   <text x="470.0" y="322.6666666666667"
-        class="progress-text">53.42%</text>
+        class="progress-text">54.11%</text>
 
 
 </svg>
