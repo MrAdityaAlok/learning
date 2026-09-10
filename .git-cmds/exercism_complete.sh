@@ -1,11 +1,17 @@
 #!/bin/bash
 
+set -eou pipefail
+
 yellow() {
   echo -e "==> \033[1;33m${1}\033[0m"
 }
 
 green() {
   echo -e "==> \033[1;32m${1}\033[0m"
+}
+
+red() {
+  echo -e "==> \033[1;31m${1}\033[0m"
 }
 
 while IFS= read -r line; do
@@ -26,9 +32,16 @@ while IFS= read -r line; do
     commit_msg="$exercism/$track/$exercise: $msg"
   fi
 
+  if ! (cd "$exercism/$track/$exercise" && exercism test &>/dev/null); then
+    red "tests do not pass of this exercise. skipping"
+    continue
+  fi
+
   git add "$file"
 
   green "commiting: $commit_msg"
 
   git commit -sm "$commit_msg" >/dev/null
+
+  echo # new-line
 done < <(git status --porcelain -- exercism/)
